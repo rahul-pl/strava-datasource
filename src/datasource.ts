@@ -706,7 +706,7 @@ export default class StravaDatasource extends DataSourceApi<StravaQuery, StravaJ
       activities = this.filterActivities(activities, query.activityType);
       const variableOptions: MetricFindValue[] = activities.map((a) => ({
         value: a.id,
-        text: a.name,
+        text: a.name + " - " + dateTime(a.start_date).format('YYYY-MM-DD HH:mm')
       }));
       return variableOptions;
     }
